@@ -2,7 +2,10 @@
   신성진
   pxp13716@gmail.com
 
+GIT
+  https://github.com/pxp13716/20220906_Vue
 
+  
 설치
     npm info @vue/cli
     npm i -g @vue/cli
