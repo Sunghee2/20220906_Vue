@@ -1,4 +1,5 @@
 /* eslint-disable require-jsdoc */
+
 (function () {
   // 일반 함수.
   function fn() {
