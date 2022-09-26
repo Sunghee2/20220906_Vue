@@ -34,7 +34,7 @@ console.log('age: ' + age + ' typeof: ' + typeof age);
 
 // 2. 모든 {}에서 범위(scope)를 갖는다
 if (true) {
-  let age = 100;
+  const age = 100;
   console.log('if inner age: ' + age + ' typeof: ' + typeof age);
 }
 console.log('if outer age: ' + age + ' typeof: ' + typeof age);
@@ -42,7 +42,6 @@ console.log('if outer age: ' + age + ' typeof: ' + typeof age);
 for (let k = 0; k < 3; k++) { }
 // console.log('For k: ' + k + ' typeof: ' + typeof k);     // Error
 console.log('');
-
 
 // const - 상수
 const MYPI = 3.1415;
@@ -66,3 +65,4 @@ console.log(MY_OBJ);
 // MY_ARR = [100, 200];   // Error
 // MY_OBJ = {};           // Error
 
+const x = 10;

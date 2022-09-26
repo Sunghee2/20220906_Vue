@@ -1,6 +1,4 @@
-
 (function () {
-
     // ES5. 함수 리터럴
     var sayHello = function () {
         return 1;
@@ -17,12 +15,11 @@
     }
 
     console.log('3 => ' + sayHello());
-    console.log("");
-
+    console.log('');
 
     // ES6. Function
 
-    let yourHello = function () {
+    const yourHello = function () {
         return 1;
     };
 
@@ -37,5 +34,5 @@
     }
 
     console.log('3 => ' + yourHello());
-    console.log("");
+    console.log('');
 })();
