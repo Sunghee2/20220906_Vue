@@ -129,6 +129,11 @@ Babel
         파일명을 지정하면 그 파일만 변경된다
         npx babel src/A01_Variable.js -d dist
 
+    6. package.json에 등록해서 사용 가능
+        "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1",
+            "build": "babel src/* -d dist"
+        },
 
 
 Webpack 
@@ -140,6 +145,29 @@ Webpack
     2. 설정파일 작성
         npx webpack-cli init
             필요한 사항 선택
+
+    Which of the following JS solutions do you want to use? (Use arrow keys)
+        ES6
+    Do you want to use webpack-dev-server? (Y/n)
+        Y
+    Do you want to simplify the creation of HTML files for your bundle? (Y/n)
+        y
+    Do you want to add PWA support? (Y/n) 
+        n
+    Which of the following CSS solutions do you want to use? (Use arrow keys)
+        CSS only
+    Will you be using PostCSS in your project? (Y/n)
+        n
+    Do you want to extract CSS for every file? (Use arrow keys)
+        Yes
+    Pick a package manager: (Use arrow keys)
+        npm
+    Overwrite package.json? (ynaxdH) 
+        yes
+    Overwrite index.html? (ynaxdH) 
+        yes
+    Overwrite .babelrc? (ynaxdH) 
+        yes
 
 
     2.5 webpack.config.json 파일을 적절히 수정해야 한다.
