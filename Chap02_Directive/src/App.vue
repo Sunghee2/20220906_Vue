@@ -8,6 +8,7 @@
     </div>
     <br>
 
+    <A03Attribute></A03Attribute><br>
     <A02Binding></A02Binding><br>
     <A01Comp />
   </div>
@@ -16,9 +17,10 @@
 <script>
 import A01Comp from './components/A01Component.vue';
 import A02Binding from './components/A02Binding.vue';
+import A03Attribute from './components/A03Attribute.vue';
 
 export default {
-  components: {A01Comp, A02Binding}
+  components: {A01Comp, A02Binding, A03Attribute}
 }
 </script>
 
