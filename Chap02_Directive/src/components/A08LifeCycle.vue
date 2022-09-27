@@ -11,7 +11,8 @@
 export default {
   data() {
     return {
-      num: 0
+      num: 0,
+      str: 'NolBu'
     }
   },
   methods: {
@@ -36,7 +37,8 @@ export default {
   },
   // DOM 생성 완료 후 mount
   mounted: function () {
-    console.log('mounted')
+    console.log('mounted');
+    // ajax 요청.... => DOM에 반영
   },
   // state 변경 전
   beforeUpdate: function () {
@@ -51,6 +53,22 @@ export default {
   },
   unmounted: function () {
     console.log('unmounted')        // destoryed
+  },
+
+  // Data 추적 Hook도 존재한다.
+  // mounted 전에 최초 1번만 실행된다.
+  renderTracked(evt) {
+    const { key, target, type } = evt;
+    console.log(key);
+    console.log(target);
+    console.log(type);
+  },
+  // 값이 변경될때마다 실행된다.
+  renderTriggered(evt) {
+    const { key, target, type } = evt;
+    console.log(key);
+    console.log(target);
+    console.log(type);
   }
 }
 </script>

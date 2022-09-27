@@ -17,6 +17,7 @@
         <button name="button 03" id="btn03">Btn 03</button>
         <button name="button 04" id="btn04">Btn 04</button>
         <button name="button 05" id="btn05">Btn 05</button>
+        <button name="button 06" id="btn06">Btn 06</button>
     </div>
 
     <script type="text/javascript">
@@ -44,6 +45,12 @@
         document.getElementById('btn05').addEventListener('click', function (evt) {
             evt05Event(evt, 'orange');
         });
+
+        function evt06Event(evt) {
+            alert('BTN 06 Event');
+            evt.target.style.background = color;
+        }
+        document.getElementById('btn05').addEventListener('click', evt06Event);
     </script>
 </body>
 

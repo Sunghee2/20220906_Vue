@@ -8,6 +8,8 @@
     </div>
     <br>
 
+    <A09Event></A09Event><br>
+    <A08LifeCycle></A08LifeCycle><br>
     <A07Watch></A07Watch><br>
     <A06Computed></A06Computed><br>
     <A05Method></A05Method><br>
@@ -26,11 +28,13 @@ import A04MakeDOM from './components/A04MakeDOM.vue';
 import A05Method from './components/A05Method.vue';
 import A06Computed from './components/A06Computed.vue';
 import A07Watch from './components/A07Watch.vue';
+import A08LifeCycle from './components/A08LifeCycle.vue';
+import A09Event from './components/A09Event.vue';
 
 export default {
   components: {
     A01Comp, A02Binding, A03Attribute, A04MakeDOM, A05Method,
-    A06Computed, A07Watch, 
+    A06Computed, A07Watch, A08LifeCycle, A09Event, 
   }
 }
 </script>
