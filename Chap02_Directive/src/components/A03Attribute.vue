@@ -29,17 +29,17 @@
 
   <div class="row">
     <div class="col-6">
-      <select class="form-control">
+      <select class="form-control"    v-model="direction">
         <option value="width">Width</option>
         <option value="height">Height</option>
       </select>
     </div>
     <div class="col-6">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control"   v-model="size">
     </div>
   </div>
   <br>
-  <img src="./../assets/images/tree.jpg" alt="Tree">
+  <img src="./../assets/images/tree.jpg" alt="Tree"   v-bind:[direction]="size">
 </template>
 
 <script>
@@ -51,6 +51,8 @@ export default {
       formCtrl: 'form-control',
       inputAttrs: { type: 'text', class: 'form-control', value: 'ABC' },  // 값으로 this 참조가 안됨.
       divStyle: { background: 'lightgray', padding: '10px' },
+      direction: 'width',
+      size: 100,
     }
   },
   methods: {
