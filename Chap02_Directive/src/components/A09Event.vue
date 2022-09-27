@@ -29,9 +29,9 @@
   </div>
   <br>
 
-  <input type="text" class="form-control"><br>
-  esc: <input type="text" class="form-control"    v-model="name"/><br>
-  Enter: <input type="text" class="form-control"  v-model="msg"/><br>
+  <input type="text" class="form-control"     @keyup.a.shift="keyUpEvent"><br>
+  esc: <input type="text" class="form-control"    v-model="name"  @keyup.esc="escEvent"/><br>
+  Enter: <input type="text" class="form-control"  v-model="msg"   @keyup.enter="enterEvent" /><br>
 </template>
 
 <script>
@@ -71,6 +71,27 @@ export default {
     },
     naver(evt) {
       console.log('Naver으로 이동');
+    },
+    keyUpEvent(evt) {
+      console.log(evt);
+      console.log('code => ', evt.code)
+      console.log('keyCode => ', evt.keyCode)
+      console.log('key => ', evt.key);
+      /*
+      if (evt.keyCode === 65 && evt.shiftKey) {
+        location.assign('http://www.daum.net');
+      }
+      */
+    },
+    escEvent() {
+      this.name = ''
+    },
+    enterEvent() {
+      if (this.msg.length < 10) {
+        alert('10글자 이상 입력해 주세요')
+      } else {
+        alert(this.msg);
+      }
     }
   }
 }

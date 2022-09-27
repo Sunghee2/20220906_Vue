@@ -8,6 +8,8 @@
     </div>
     <br>
 
+    <A11Refs></A11Refs><br>
+    <A10Form></A10Form><br>
     <A09Event></A09Event><br>
     <A08LifeCycle></A08LifeCycle><br>
     <A07Watch></A07Watch><br>
@@ -30,11 +32,14 @@ import A06Computed from './components/A06Computed.vue';
 import A07Watch from './components/A07Watch.vue';
 import A08LifeCycle from './components/A08LifeCycle.vue';
 import A09Event from './components/A09Event.vue';
+import A10Form from './components/A10Form.vue';
+import A11Refs from './components/A11Refs.vue';
 
 export default {
   components: {
     A01Comp, A02Binding, A03Attribute, A04MakeDOM, A05Method,
-    A06Computed, A07Watch, A08LifeCycle, A09Event, 
+    A06Computed, A07Watch, A08LifeCycle, A09Event, A10Form, 
+    A11Refs, 
   }
 }
 </script>
