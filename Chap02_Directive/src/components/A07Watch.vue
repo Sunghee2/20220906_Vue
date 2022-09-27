@@ -4,7 +4,7 @@
   <div>
     <input type="text" class="form-control" v-model="x"><br>
     <input type="text" class="form-control" v-model="y"><br>
-    Total: {{total}}<br >
+    Total: {{total}} / <br >
     <br>
 
     <input type="text" class="form-control" v-model="name"><br>
@@ -13,16 +13,16 @@
         <tr><th>NO</th><th>NAME</th><th>TEL</th><th>ADDRESS</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr v-for="item in contactList" :key="item.no">
+          <td>{{item.no}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.tel}}</td>
+          <td>{{item.address}}</td>
         </tr>
       </tbody>
     </table>
 
-    <div>Loading....</div>
+    <div v-show="isLoading">Loading....</div>
   </div>  
 </template>
 
@@ -41,7 +41,34 @@ export default {
     }
   },
   methods: {
-
+    getTotal() {
+      this.total = Number(this.x) + Number(this.y);
+    },
+    getContactList() {
+      this.isLoading = true;
+      fetch(baseURL + this.name)
+        .then(resp => resp.json())
+        .then(data => {
+          this.isLoading = false;
+          // console.log(data)
+          this.contactList = data;
+        })
+        .catch(err => console.error(err))
+    }
   },
+  watch: {
+    x(newVal, oldVal) {
+      console.log(newVal, oldVal);
+      let total = Number(newVal) + Number(this.y);
+      if (isNaN(total)) total = 0;
+      this.total = total;
+    },
+    y(newVal, oldVal) {
+      this.getTotal()
+    },
+    name(value) {
+      if (value.length >= 2) this.getContactList();
+    }
+  }
 }
 </script>

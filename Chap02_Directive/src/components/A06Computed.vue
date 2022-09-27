@@ -2,9 +2,9 @@
   <h3>A06 Computed</h3>
 
   <div class="input-group">
-    <input type="text" name="search" class="form-control">
+    <input type="text" name="search" id="search" class="form-control" :value="data.countryname" ref="searchRef">
     <div class="input-group-append">
-      <button class="btn btn-primary">SEARCH</button>
+      <button class="btn btn-primary" v-on:click="changeSearch">SEARCH</button>
     </div>
   </div>
   <br>
@@ -16,11 +16,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr v-for="item in searchData" :key="item.no">
+        <td>{{item.no}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.capital}}</td>
+        <td>{{item.region}}</td>
       </tr>
     </tbody>
   </table>
@@ -49,6 +49,25 @@ const data = {
   ]
 }
 export default {
+  data() {
+    return {
+      data,
+    }
+  },
+  methods: {
+    changeSearch(evt) {
+      // const search = document.getElementById('search').value;        => ref
+      // console.log(this.$refs);
 
+      // VM에서 template에 있는 요소를 참조할 목적으로 사용한다.
+      const search = this.$refs.searchRef.value;
+      this.data.countryname = search;
+    },
+  },
+  computed: {
+    searchData() {
+      return this.data.countries.filter(item => item.name.includes(this.data.countryname))
+    }
+  }
 }
 </script>

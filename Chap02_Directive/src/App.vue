@@ -7,6 +7,9 @@
       Vue 3.X에서는 다중 요소 지원<br>
     </div>
     <br>
+
+    <A07Watch></A07Watch><br>
+    <A06Computed></A06Computed><br>
     <A05Method></A05Method><br>
     <A04MakeDOM></A04MakeDOM><br>
     <A03Attribute></A03Attribute><br>
@@ -21,9 +24,14 @@ import A02Binding from './components/A02Binding.vue';
 import A03Attribute from './components/A03Attribute.vue';
 import A04MakeDOM from './components/A04MakeDOM.vue';
 import A05Method from './components/A05Method.vue';
+import A06Computed from './components/A06Computed.vue';
+import A07Watch from './components/A07Watch.vue';
 
 export default {
-  components: {A01Comp, A02Binding, A03Attribute, A04MakeDOM, A05Method}
+  components: {
+    A01Comp, A02Binding, A03Attribute, A04MakeDOM, A05Method,
+    A06Computed, A07Watch, 
+  }
 }
 </script>
 
