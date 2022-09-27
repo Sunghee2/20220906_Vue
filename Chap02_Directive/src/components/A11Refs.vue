@@ -31,6 +31,7 @@ export default {
   mounted() {
     this.$refs.msgRef.style.background = 'orange';
     this.$refs.msgRef.focus();
+    console.log(this)
   }
 }
 </script>
