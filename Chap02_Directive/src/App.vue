@@ -4,16 +4,21 @@
   
     <div>
       Vue 2.X에서는 template 아래에 단일 요소만 지원한다.<br>
-      Vue 3.X에서는 다중 요소 지원
+      Vue 3.X에서는 다중 요소 지원<br>
     </div>
+    <br>
+
+    <A02Binding></A02Binding><br>
+    <A01Comp />
   </div>
 </template>
 
 <script>
+import A01Comp from './components/A01Component.vue';
+import A02Binding from './components/A02Binding.vue';
 
 export default {
-  name: 'App',
-  components: {}
+  components: {A01Comp, A02Binding}
 }
 </script>
 
