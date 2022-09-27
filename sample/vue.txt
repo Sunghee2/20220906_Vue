@@ -38,6 +38,12 @@ Vue 관련 VSCode plugins
 
   Vetur(2,X)
   Volar(3.X)
+    설치 후 setting.json 파일에 추가
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto"
+      }
+    ],
   
   Auto Rename Tag
   Auto Close Tag
