@@ -16,24 +16,30 @@
 
   <div>
     <h5>2. 바인딩 연산</h5>
-    일반적 연산: <br>
-    속성 참조: <br>
-    속성 참조 연산: <br>
-    비교 연산: <br>
-    비교 연산: <br>
-    삼항 연산: <br>
+    일반적 연산: {{1 + 2}}<br>
+    속성 참조: {{arr.length}}<br>
+    속성 참조 연산: {{arr.length * 100}}<br>
+    비교 연산: {{arr.length >= 10}}<br>
+    비교 연산: {{arr.length >= 10 && arr[0] === 10}}<br>
+    삼항 연산: {{name === '놀부' ? '관리자' : '일반 유저'}}<br>
   </div>
   <br>
 
   <div>
     <h5>3. 바인딩 관련 지시자</h5>
-    v-text: <span></span><br>
-    v-html: <span></span><br>
-    v-once: <span></span><br>
-    v-pre: <span></span><br>
+    지시자에 값으로 지정하는 값은 항상 변수 또는 함수 이름을 의미한다.<br>
+    Binding: {{dom}}<br />
+    v-text: <span v-text="dom"></span><br>
+    v-html: <span v-html="dom"></span><br>
+    
+    v-once는 한번 바인딩 된 후 값이 변경되더라도 View가 변경되지 않음<br>
+    v-once: <span v-once>{{dom}}</span><br>
+
+    v-pre는 View에서 {{}}를 바인디 표현법이 아닌 일반적인 텍스트로 인식 시키고자 할 경우<br>
+    v-pre: <span v-pre>{{dom}}</span><br>
     <br>
-    <button>Change</button>
-    <button>Change</button>
+    <button v-on:click="changeDOM('Good Morning')">Change</button>
+    <button @click="changeDOM('Good Evening')">Change</button>
     <br>
   </div>
 
@@ -53,6 +59,7 @@ export default {
       arr: [10, 20],
       user: { name: 'HungBu', age: 20 },
       isChecked: true,
+      dom: '<b>Hello World</b>',
     }
   },
   methods: {
@@ -66,6 +73,10 @@ export default {
       // console.log(this);                // window
       // console.log(this.title);       // Error
       return `${x} - ${y} = ${x - y}`;
+    },
+    changeDOM(dom) {
+      // data의 값을 참조하는 경우 template에서는 this를 생략하지만 methods 내부에서는 항상 this로 참조
+      this.dom = '<b><i>' + dom + '</i></b>'
     }
   },
   computed: {},
