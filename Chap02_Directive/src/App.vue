@@ -8,6 +8,8 @@
     </div>
     <br>
 
+    <A15Currency></A15Currency><br>
+    <A14ClassModule></A14ClassModule><br>
     <A13StyleClass></A13StyleClass><br>
     <A12ArrayObject></A12ArrayObject><br>
     <A11Refs></A11Refs><br>
@@ -38,12 +40,14 @@ import A10Form from './components/A10Form.vue';
 import A11Refs from './components/A11Refs.vue';
 import A12ArrayObject from './components/A12ArrayObject.vue';
 import A13StyleClass from './components/A13StyleClass.vue';
+import A14ClassModule from './components/A14ClassModule.vue';
+import A15Currency from './components/A15Currency.vue';
 
 export default {
   components: {
     A01Comp, A02Binding, A03Attribute, A04MakeDOM, A05Method,
     A06Computed, A07Watch, A08LifeCycle, A09Event, A10Form, 
-    A11Refs, A12ArrayObject, A13StyleClass, 
+    A11Refs, A12ArrayObject, A13StyleClass, A14ClassModule, A15Currency
   }
 }
 </script>
