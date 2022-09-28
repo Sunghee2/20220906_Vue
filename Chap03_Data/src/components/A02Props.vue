@@ -2,7 +2,11 @@
   <h3>A02 Props</h3>
 
   Title: {{title}}<br>
-  <A02PropsChild v-bind:title="title" name="놀부" :age="30"></A02PropsChild>
+  <A02PropsChild 
+    v-bind:title="title" name="놀부" :age="30"
+    :address="address" :ary="arr" 
+    :user="user" :onAdd="onAdd"
+    isChecked></A02PropsChild>
 </template>
 
 <script>
