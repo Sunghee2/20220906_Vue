@@ -9,11 +9,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td><span></span></td>
-        <td><button class="btn btn-primary">Complete</button></td>
-        <td><button class="btn btn-danger">Delete</button></td>
+      <tr v-for="todo in todoList" :key="todo.id">
+        <td>{{todo.id}}</td>
+        <td><span :class="{'done': todo.done}">{{todo.text}}</span></td>
+        <td><button class="btn btn-primary" @click="updateTodo(todo.id)">Complete</button></td>
+        <td><button class="btn btn-danger"  @click="deleteTodo(todo.id)">Delete</button></td>
       </tr>
     </tbody>
   </table>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  
+  props: ['todoList', 'updateTodo', 'deleteTodo']
 }
 </script>
 

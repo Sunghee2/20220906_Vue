@@ -6,18 +6,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <template v-for="contact in contactList" :key="contact.no">
+        <tr>
+          <td>{{contact.no}}</td>
+          <td>{{contact.name}}</td>
+          <td>{{contact.tel}}</td>
+          <td>{{contact.address}}</td>
+        </tr>
+      </template>
     </tbody>
   </table>
 </template>
 
 <script>
 export default {
-  
+  props: ['contactList']
 }
 </script>
