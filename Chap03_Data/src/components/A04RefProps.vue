@@ -7,10 +7,13 @@
   </div>
   <br>
 
+  <A04RefPropChild></A04RefPropChild>
 </template>
 
 <script>
+import A04RefPropChild from './childcomps/A04RefPropChild.vue';
 export default {
+  components: {A04RefPropChild},
   data() {
     return {
       
