@@ -17,13 +17,13 @@
   <br>
 
   <div>
-    <button>ADD Array</button>
-    <button>Change Array</button>
-    <button>Delete Array</button>
+    <button   @click="addArray">ADD Array</button>
+    <button   @click="updateArray(1, 2000)">Change Array</button>
+    <button   @click="deleteArray(1)">Delete Array</button>
 
-    <button>ADD Object</button>
-    <button>Change Object</button>
-    <button>Delete Object</button>
+    <button   @click="addObject('address', 'Seoul')">ADD Object</button>
+    <button   @click="updateObject('address', 'Busan')">Change Object</button>
+    <button   @click="deleteObject('address')">Delete Object</button>
   </div>  
 </template>
 
@@ -36,7 +36,31 @@ export default {
     }
   },
   methods: {
-    
+    addArray() {
+      const random = Math.ceil(Math.random() * 100);
+      this.names.push(random);
+    },
+    updateArray(index, value) {
+      // this.names.splice(index, 1, value);  // 2.X
+      // Vue.set(this.names, index, value)    // 2.X
+      this.names[index] = value;              // 3.X
+    },
+    deleteArray(index) {
+      this.names.splice(index, 1);
+    },
+    addObject(key, value) {
+      // this.user = { ...this.user, [key]: value };    // 2.X
+      this.user[key] = value;                           // 3.X
+    },
+    updateObject(key, value) {
+      // this.user = { ...this.user, [key]: value };    // 2.X
+      this.user[key] = value;                           // 3.X
+    },
+    deleteObject(key) {
+      // delete this.user[key];
+      // this.user = { ...this.user };                  // 2.X
+      delete this.user[key];                           // 3.X
+    }
   }
 }
 </script>

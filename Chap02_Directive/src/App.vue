@@ -1,5 +1,5 @@
 <template>
-  <div class="m-3">
+  <div class="m-3 app">
     <h1>Chap02 Directive</h1>
   
     <div>
@@ -8,6 +8,8 @@
     </div>
     <br>
 
+    <A13StyleClass></A13StyleClass><br>
+    <A12ArrayObject></A12ArrayObject><br>
     <A11Refs></A11Refs><br>
     <A10Form></A10Form><br>
     <A09Event></A09Event><br>
@@ -34,16 +36,20 @@ import A08LifeCycle from './components/A08LifeCycle.vue';
 import A09Event from './components/A09Event.vue';
 import A10Form from './components/A10Form.vue';
 import A11Refs from './components/A11Refs.vue';
+import A12ArrayObject from './components/A12ArrayObject.vue';
+import A13StyleClass from './components/A13StyleClass.vue';
 
 export default {
   components: {
     A01Comp, A02Binding, A03Attribute, A04MakeDOM, A05Method,
     A06Computed, A07Watch, A08LifeCycle, A09Event, A10Form, 
-    A11Refs, 
+    A11Refs, A12ArrayObject, A13StyleClass, 
   }
 }
 </script>
 
 <style>
-
+  /* HTML에서 CSS 기술 방식과 동일하게 정의한다. */
+  /* @import url('path...'); */
+  .app { color: 'lightgray'}
 </style>
