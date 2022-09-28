@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { computed } from 'vue';
 import A07Inject from './childcomps/A07Inject.vue'
 
 export default {
@@ -41,5 +42,13 @@ export default {
       this.user.age = 100;
     }
   },
+  provide() {
+    return {
+      name: computed(() => this.name),
+      user: this.user,
+      changeName: this.changeName,
+      changeUser: this.changeUser
+    }
+  }
 }
 </script>

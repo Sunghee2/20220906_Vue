@@ -9,12 +9,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="todo in todoList" :key="todo.id">
-        <td>{{todo.id}}</td>
-        <td><span :class="{'done': todo.done}">{{todo.text}}</span></td>
-        <td><button class="btn btn-primary" @click="updateTodo(todo.id)">Complete</button></td>
-        <td><button class="btn btn-danger"  @click="deleteTodo(todo.id)">Delete</button></td>
-      </tr>
+      <template v-for="todo in todoList" :key="todo.id">
+        <tr>
+          <td>{{todo.id}}</td>
+          <td><span :class="{'done': todo.done}">{{todo.text}}</span></td>
+          <td><button class="btn btn-primary" @click="updateTodo(todo.id)">Complete</button></td>
+          <td><button class="btn btn-danger"  @click="deleteTodo(todo.id)">Delete</button></td>
+        </tr>
+      </template>
     </tbody>
   </table>
 

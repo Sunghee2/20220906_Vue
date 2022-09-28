@@ -1,7 +1,7 @@
 <template>
   <h3>A06 TodoList</h3>
 
-  <A06TodoListForm ></A06TodoListForm>
+  <A06TodoListForm  :addTodo="addTodo"></A06TodoListForm>
   <A06TodoListTable :todoList="todoList" :updateTodo="updateTodo" :deleteTodo="deleteTodo"></A06TodoListTable>
 </template>
 
@@ -20,12 +20,24 @@ export default {
   data() {
     return {
       todoList,
+      id: 4
     }
   },
   methods: {
-    updateTodo(id) { },
-    deleteTodo(id) { },
-    addTodo(text) {}
+    updateTodo(id) {
+      const todo = this.todoList.find(todo => todo.id === id);
+      // this.todoList[id].done = !this.todoList[id].done;
+      todo.done = !todo.done;
+    },
+    deleteTodo(id) {
+      // this.todoList.splice(id, 1);
+      const index = this.todoList.findIndex(todo => todo.id === id);
+      this.todoList.splice(index, 1);
+    },
+    addTodo(text) {
+      const todo = { id: this.id++, text, done: false };
+      this.todoList.push(todo);
+    }
   }
 }
 </script>

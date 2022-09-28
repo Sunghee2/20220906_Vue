@@ -2,7 +2,7 @@
   <h5>A09 Slot Child Component</h5>
 
   <div>
-    
+    <slot></slot>
   </div>
 </template>
 

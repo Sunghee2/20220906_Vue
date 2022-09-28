@@ -1,7 +1,13 @@
 <template>
   <h3>A09 Slot</h3>
 
-  <A09SlotChild></A09SlotChild>
+  <A09SlotChild>
+    <div>
+      Good Morning
+    </div>
+  </A09SlotChild>
+  <hr>
+  <A09SlotChild>Good Evening</A09SlotChild>
 </template>
 
 <script>
