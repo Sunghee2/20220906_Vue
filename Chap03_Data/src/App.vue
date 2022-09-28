@@ -2,6 +2,7 @@
   <div class="m-3">
     <h1>Chap03 Data</h1>
 
+    <A11ScopeSlot></A11ScopeSlot><br>
     <A10SlotName></A10SlotName><br>
     <A09Slot></A09Slot><br>
     <A07Provide></A07Provide><br>
@@ -24,12 +25,13 @@ import A06TodoList from './components/A06TodoList.vue';
 import A07Provide from './components/A07Provide.vue';
 import A09Slot from './components/A09Slot.vue';
 import A10SlotName from './components/A10SlotName.vue';
+import A11ScopeSlot from './components/A11ScopeSlot.vue';
 
 export default {
   name: 'App',
   components: {
     A01Component, A02Props, A03Emits, A04RefProps, A05ContactList,
-    A06TodoList, A07Provide, A09Slot, A10SlotName, 
+    A06TodoList, A07Provide, A09Slot, A10SlotName, A11ScopeSlot
   }
 }
 </script>

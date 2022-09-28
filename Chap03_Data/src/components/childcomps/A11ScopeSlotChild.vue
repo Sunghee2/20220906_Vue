@@ -10,9 +10,9 @@
     <input type="text" class="form-control" v-model.number="eng">
   </div>
 
-  <!-- slot props라 한다 -->
-  <slot></slot>
-  <slot name="jumsu"></slot>
+  <!-- slot props라 한다. 속성명에 name은 주의(slot의 이름으로 사용된다) -->
+  <slot nickname="NolBu" :kor="kor" :eng="eng" :user="user" :changeKor="changeKor"></slot>
+  <slot name="jumsu" nickname="향단" :kor="kor" :eng="eng" :user="user" :changeKor="changeKor"></slot>
 
 </template>
 
