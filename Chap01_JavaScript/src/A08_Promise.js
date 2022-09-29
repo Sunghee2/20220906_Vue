@@ -54,7 +54,7 @@ function promise(ms) {
   const promise = new Promise((resolve, reject) => {
     // err => console.error(err)
     // eslint-disable-next-line prefer-promise-reject-errors
-    if (ms < 1000) reject('시간이 너무 짧습니다');
+    if (ms < 1000) reject('시간이 너무 짧습니다'); // reject(throw new Error('ddfdfdf'))
 
     setTimeout(() => {
       const result = 1000;

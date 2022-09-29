@@ -12,13 +12,13 @@
     </div>
 
     <div>
-      <textarea cols="100" rows="10" readonly></textarea>
+      <textarea cols="100" rows="10" readonly :value="data"></textarea>
     </div>
   </div>
 </template>
 
 <script>
-
+import axios from 'axios';
 const baseURL = 'http://localhost:8000/contacts/'
 
 export default {
@@ -26,23 +26,59 @@ export default {
       return { data: {} }
   },
   methods: {
+    // JSON.stringify(data): JavaScript Data => JSON Data
+    // JSON.parse(data): JSON Data => JavaScript Data
     getContactList: function() {
-      
+      axios.get(baseURL, {params: {pageno: 1, pagesize: 10}})
+        .then(resp => {
+          console.log(resp.data);
+          this.data = JSON.stringify(resp.data, '', 4);
+        })
+        .catch(err => console.error(err))
     },
-    getContactListAsync: function() {
-
+    async getContactListAsync() {
+      try {
+        const resp = await axios.get(baseURL, { params: { pageno: 2, pagesize: 10 } });
+        this.data = JSON.stringify(resp.data, '', 4);
+      } catch (err) {
+        console.error(err)
+      }
     },
     getContact: function() {
+      axios({
+        method: 'get',
+        url: baseURL + 100,
+        // headers: {'Content-Type': 'application/json'}    // Header Setting
+        // data: ,                                          // Server에 전달할 값
+      })
+        .then(resp => this.data = JSON.stringify(resp.data, '', 4))
+        .catch(err => console.error(err));
 
     },
-    addContact: function() {
-
+    addContact: function () {
+      const data = {
+          "name":"강감찬",
+          "tel":"010-2222-3339",
+          "address":"서울시"
+      }
+      axios.post(baseURL, data, { headers: { 'Content-Type': 'application/json' } })
+        .then(resp => this.data = JSON.stringify(resp.data, '', 4))
+        .catch(err => console.error(err));
     },
     updateContact: function() {
-
+      const data = {
+          "name":"이순신",
+          "tel":"010-1111-3339",
+          "address":"서울시"
+      }
+      axios.put(baseURL + 1664426231061, data, { headers: { 'Content-Type': 'application/json' } })
+        .then(resp => this.data = JSON.stringify(resp.data, '', 4))
+        .catch(err => console.error(err));
     },
     deleteContact: function() {
-
+      axios.delete(baseURL + 1664426231061)
+        .then(resp => this.data = JSON.stringify(resp.data, '', 4))
+        .catch(err => console.error(err));
     },
   }
 }
