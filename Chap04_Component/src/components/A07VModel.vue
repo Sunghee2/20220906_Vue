@@ -6,8 +6,14 @@
   Num: {{num + 100}}<br>
   <hr>
 
-  <A07VModelName></A07VModelName><br />
-  <A07VModelNum></A07VModelNum>
+  <!--
+    v-model="name"
+    :name="name" @update:modelValue="getNumber"
+  -->
+  <A07VModelName labelName="Name" v-model="name"></A07VModelName><br />
+  <A07VModelName labelName="Age" v-model="age"></A07VModelName><br />
+  <A07VModelNum labelName="Name" 
+    :modelValue="num" @update:modelValue="getNumber"></A07VModelNum>
 </template>
 
 <script>

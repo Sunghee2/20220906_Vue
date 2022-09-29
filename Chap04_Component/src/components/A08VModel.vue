@@ -6,7 +6,8 @@
   Num: {{num + 100}}<br>
   <hr>
 
-  <A08VModelChild></A08VModelChild>
+  인수를 이용해서 다른 이름으로 전달. 받는 자식도 인수 이름으로 받아 사용한다<br>
+  <A08VModelChild labelName="Name" v-model:name="name" v-model:age="age" v-model:num="num"></A08VModelChild>
 </template>
 
 <script>
