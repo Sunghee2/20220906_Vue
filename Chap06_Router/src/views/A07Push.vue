@@ -33,8 +33,8 @@ export default {
     },
   },
   created() {
-    console.log(this.$route);
-    console.log(this.$router)
+    console.log(this.$route);   // prams, query, fullpath...
+    console.log(this.$router)   // method(link)
   }
 }
 </script>
