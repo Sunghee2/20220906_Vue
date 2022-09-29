@@ -6,8 +6,8 @@
   
   <hr>
 
-  <A09VModelName  labelName="name"></A09VModelName><br />
-  <A09VModelNum   labelName="address"></A09VModelNum>
+  <A09VModelName  labelName="name"    v-model.upper="name"></A09VModelName><br />
+  <A09VModelNum   labelName="address" v-model:add.upper="address"></A09VModelNum>
 </template>
 
 <script>
