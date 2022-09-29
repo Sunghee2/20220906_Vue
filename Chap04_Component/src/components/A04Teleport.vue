@@ -9,11 +9,14 @@
   </p>
 
    <form>
-    <button     @click.prevent="showModal('one', true)">ONE SHOW</button>
-    <button     @click.prevent="showModal('two', true)">TWO SHOW</button>
+    <button     @click.prevent="showModal('one', true, 'ONE')">ONE SHOW</button>
+    <button     @click.prevent="showModal('two', true, 'TWO')">TWO SHOW</button>
   </form>
 
-  <A04TeleportChild></A04TeleportChild>
+  <teleport to="#popup">
+    <A04TeleportChild :one="one" :two="two" :title="title" :showModal="showModal"></A04TeleportChild>
+  </teleport>
+
 </template>
 
 <script>
@@ -29,8 +32,9 @@ export default {
     }
   },
   methods: {
-    showModal(name, check) {
-      this[name] = check
+    showModal(name, check, title) {
+      this[name] = check;
+      this.title = title;
     }
   },
 }
