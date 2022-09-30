@@ -8,7 +8,7 @@
 </template>
 
 <style>
-#nav a.router-link-exact-active {
+#nav a.router-link-active {
   color: orange;
 }
 </style>

@@ -3,9 +3,9 @@
         <h3>Get Contact</h3>
 
         <div>
-            Name: <input type="text" class="form-control" disabled />
-            Tel: <input type="text" class="form-control" disabled />
-            Address: <input type="text" class="form-control" disabled />
+            Name: <input type="text" class="form-control" disabled      :value="contact.name"/>
+            Tel: <input type="text" class="form-control" disabled       :value="contact.tel"/>
+            Address: <input type="text" class="form-control" disabled   :value="contact.address"/>
         </div>
         <br />
         <button class="btn btn-outline-primary">수정</button>
@@ -15,15 +15,19 @@
 
 <script>
 export default {
-  props: [],
+  props: ['no'],
   computed: {
-
+    contact() {
+      return this.$store.state.contactR.contact;
+    }
   },
   methods: {
-
+    getContact(no) {
+      this.$store.dispatch('contactR/CONTACT_GETCONTACT', no);
+    }
   },
   mounted() {
-    
+    this.getContact(this.no)
   },
 }
 </script>
