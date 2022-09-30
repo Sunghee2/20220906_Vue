@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import todoListS from "./todoList";
 
 const store = new createStore({
   // 전역에서 사용할 변수 관리
@@ -30,6 +31,7 @@ const store = new createStore({
   },
   // 하위 store를 구성할 목적으로 사용
   modules: {
+    todoListS,
     /*
     todoList: {
       state: {},
