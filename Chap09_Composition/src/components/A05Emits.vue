@@ -2,13 +2,13 @@
   <h3>A05 Emits</h3>  
 
   <div>
-    Name: <br>
+    Name: {{name}} <br>
     <br>
-    Object: <br>
-    Name: <br />
-    etc: <br />
+    Object: {{stateData.num}} / {{stateData.arr[0]}} / {{stateData.user.name}}<br>
+    Name: {{nameData}}<br />
+    <br />
 
-    <button>Func</button>
+    <button @click="func('ABC')">Func</button>
   </div>
 
   <hr>
@@ -28,6 +28,16 @@
     user: {}
   });
 
-  const getName = evt => {};
-  const getData = evt => {};
+let func = ref();
+
+  const getName = evt => {
+    name.value = evt;
+  };
+  const getData = evt => {
+    nameData.value = evt.name;
+    stateData.num = evt.state.num;
+    stateData.arr = evt.state.arr;
+    stateData.user = evt.state.user;  
+    func.value = evt.changeName;
+  };
 </script>

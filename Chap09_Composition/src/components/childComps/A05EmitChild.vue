@@ -13,7 +13,8 @@
 </template>
 
 <script setup>
-  import {ref, reactive } from 'vue'
+  import {ref, reactive, defineEmits } from 'vue'
+  const emits = defineEmits(['nameEvent', 'objEvent']);
 
   const name = ref('NolBu');
   const state = reactive({
@@ -27,8 +28,15 @@
     name.value = x;
   }
   
-  const sendName = () => {};
+  const sendName = () => {
+    emits('nameEvent', name.value)
+  };
   const sendData = () => {
-    const data = {}
+    const data = {
+      name: name.value,
+      state: { ...state },
+      changeName,
+    }
+    emits('objEvent', data);
   }
 </script>

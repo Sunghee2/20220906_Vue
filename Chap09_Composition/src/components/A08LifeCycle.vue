@@ -40,7 +40,17 @@
     console.log('6. unMounted')
   });
 
-  onErrorCaptured( (err, vm, info) => {   // errorCaptured
+  onErrorCaptured( (err, /*vm, info*/) => {   // errorCaptured
     console.log(err)
   });
+
+  /*
+    router
+      this.$route => const route = useRoute();   => route.query
+      this.$router => const router = useRouter(); => router.push('/')
+
+    store
+      this.$store => const store = useStore();
+  */
 </script>
+

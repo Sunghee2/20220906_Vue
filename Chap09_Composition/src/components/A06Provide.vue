@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-  import { reactive, ref } from 'vue';
+  import { reactive, ref, provide } from 'vue';
   import A06Inect from './childComps/A06Inect.vue'
 
   const name = ref('NolBu');
@@ -37,6 +37,9 @@
   const changeArr = () => obj.arr[0] = 2000;
   const changeObj = (x) => obj.user.name = x;
 
-
+provide('name', name);
+provide('user', user);
+provide('obj', obj);
+provide('methods', {changeName, changeUser, changeObjName, changeObjAge, changeArr, changeObj})
 </script>
 
