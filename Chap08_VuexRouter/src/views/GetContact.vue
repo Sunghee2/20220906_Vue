@@ -8,8 +8,8 @@
             Address: <input type="text" class="form-control" disabled   :value="contact.address"/>
         </div>
         <br />
-        <button class="btn btn-outline-primary">수정</button>
-        <button class="btn btn-outline-primary">삭제</button>
+        <button class="btn btn-outline-primary" @click="viewUpdate">수정</button>
+        <button class="btn btn-outline-primary" @click="deleteContact(contact.no)">삭제</button>
     </div>
 </template>
 
@@ -24,6 +24,13 @@ export default {
   methods: {
     getContact(no) {
       this.$store.dispatch('contactR/CONTACT_GETCONTACT', no);
+    },
+    viewUpdate() {
+      this.$router.push('/UpdateContact');
+    },
+    deleteContact(no) {
+      this.$store.dispatch('contactR/CONTACT_DELETECONTACT', no);
+      this.$router.push('/GetContactList');
     }
   },
   mounted() {

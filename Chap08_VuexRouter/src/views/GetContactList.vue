@@ -13,7 +13,11 @@
             <td><router-link :to="{name: 'contact', params: {no: contact.no}}">{{contact.name}}</router-link></td>
             <td>{{contact.tel}}</td>
             <td>{{contact.address}}</td>
-            <td><img :src="contact.photo" width="50"/></td>
+            <td>
+              <router-link :to="{name: 'photo', params: {no: contact.no}}">
+                <img :src="contact.photo" width="50"/>
+              </router-link>
+              </td>
           </tr>
         </template>
       </tbody>

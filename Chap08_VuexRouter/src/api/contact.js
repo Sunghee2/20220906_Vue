@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE_URI = "http://localhost:8000";
+// const BASE_URI = "/api";
 const PAGE_NO = 1;
 const PAGE_SIZE = 10;
 const GET_CONTACTLIST = BASE_URI + "/contacts/";
