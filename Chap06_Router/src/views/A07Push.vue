@@ -35,6 +35,25 @@ export default {
   created() {
     console.log(this.$route);   // prams, query, fullpath...
     console.log(this.$router)   // method(link)
-  }
+  },
+  beforeRouteEnter(/*to, from*/) {
+    console.log("component 수준의 네이게이션 보호 => IN");
+    const storage = window.sessionStorage;
+      if (storage.getItem("age")) return true;
+      else return false;
+  },
+  // false면 이 view에서 다른 view로 이동이 안됨
+  beforeRouteLeave(/*to, from*/) {
+    console.log("component 수준의 네이게이션 보호 => OUT");
+    const storage = window.sessionStorage;
+      if (storage.getItem("age")) return true;
+      else return false;
+  },
+  beforeRouteUpdate(/*to, from*/) {
+    console.log("component 수준의 네이게이션 보호 => Update");
+    const storage = window.sessionStorage;
+      if (storage.getItem("age")) return true;
+      else return false;
+  },
 }
 </script>

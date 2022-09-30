@@ -38,7 +38,16 @@ const routes = [
 
   // lazy load. link가 클릭되면 그때 서버에 요청해서 해당 컴퍼넌트를 불러온다.
   { path: "/A06Query", name: "query", component: () => import("@views/A06Query.vue") },
-  { path: "/A07Push", name: "push", component: () => import("@views/A07Push.vue") },
+  {
+    path: "/A07Push",
+    name: "push",
+    component: () => import("@views/A07Push.vue"),
+    beforeEnter: (/*to, from*/) => {
+      console.log("Router 수준의 네이게이션 보호");
+      if (storage.getItem("age")) return true;
+      else return false;
+    },
+  },
 
   // 하위 router를 구성한다
   {
@@ -64,3 +73,26 @@ const router = createRouter({
   routes,
 });
 export default router;
+
+const storage = window.sessionStorage;
+storage.setItem("user", "Nolbu");
+storage.setItem("age", 10);
+
+// storage.removeItem("user");
+
+router.beforeEach((to, from) => {
+  console.log(to, from);
+  console.log("전역 수준의 네이게이션 보호 => IN");
+  if (storage.getItem("user")) return true;
+  else return false;
+});
+router.beforeResolve((/*to, from*/) => {
+  // console.log(to, from);
+  console.log("전역 수준의 네이게이션 보호 => 이동전 beforeEach가 실행 후");
+  if (storage.getItem("user")) return true;
+  else return false;
+});
+router.afterEach((/*to, from*/) => {
+  // console.log(to, from);
+  console.log("전역 수준의 네이게이션 보호 => OUT");
+});
